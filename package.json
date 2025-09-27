@@ -1,9 +1,9 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "fala-ai-cidadao",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://yazolabs.github.io/fala-ai-cidadao",
+  "homepage": "https://yazolabs.github.io/fala-ai-cidadao/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
