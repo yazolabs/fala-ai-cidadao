@@ -1,0 +1,268 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 222 19% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 19% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 19% 20%;
+
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 222 19% 20%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 196 100% 23%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 24 95% 53%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 222 19% 20%;
+    --sidebar-primary: 24 95% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 98%;
+    --sidebar-accent-foreground: 222 19% 20%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 24 95% 53%;
+
+    /* FALA Aí Brand Colors - Based on Logo */
+    --brand-primary: 24 95% 53%;        /* Orange from logo */
+    --brand-primary-hover: 24 95% 48%;  /* Darker orange */
+    --brand-yellow: 50 100% 80%;        /* Yellow from buildings */
+    --brand-blue: 196 100% 23%;         /* Navy blue from "FALA AI" */
+    --brand-green: 142 69% 46%;         /* Green from "CIDADÃO" */
+
+    /* Status Colors */
+    --status-pending: 46 94% 69%;
+    --status-progress: 200 98% 58%;
+    --status-resolved: 136 65% 51%;
+    --status-canceled: 0 84% 60%;
+
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(29 82% 47%), hsl(46 94% 69%));
+    --gradient-hero: linear-gradient(135deg, hsl(209 50% 22%) 0%, hsl(29 82% 47%) 50%, hsl(136 54% 38%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(245 247 250) 0%, hsl(240 247 250) 100%);
+
+    /* Shadows */
+    --shadow-brand: 0 10px 30px -10px hsl(29 82% 47% / 0.3);
+    --shadow-card: 0 4px 12px -2px hsl(16 17 20 / 0.08);
+    --shadow-floating: 0 20px 40px -12px hsl(16 17 20 / 0.15);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 16 17 20;
+    --foreground: 245 247 250;
+
+    --card: 31 36 41;
+    --card-foreground: 245 247 250;
+
+    --popover: 31 36 41;
+    --popover-foreground: 245 247 250;
+
+    --primary: 29 82% 47%;
+    --primary-foreground: 16 17 20;
+
+    --secondary: 43 48 54;
+    --secondary-foreground: 245 247 250;
+
+    --muted: 43 48 54;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 46 94% 69%;
+    --accent-foreground: 16 17 20;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 43 48 54;
+    --input: 43 48 54;
+    --ring: 29 82% 47%;
+
+    --sidebar-background: 16 17 20;
+    --sidebar-foreground: 245 247 250;
+    --sidebar-primary: 29 82% 47%;
+    --sidebar-primary-foreground: 16 17 20;
+    --sidebar-accent: 31 36 41;
+    --sidebar-accent-foreground: 245 247 250;
+    --sidebar-border: 43 48 54;
+    --sidebar-ring: 29 82% 47%;
+
+    /* Dark mode gradients */
+    --gradient-card: linear-gradient(180deg, hsl(31 36 41) 0%, hsl(28 33 38) 100%);
+    --shadow-card: 0 4px 12px -2px hsl(16 17 20 / 0.4);
+    --shadow-floating: 0 20px 40px -12px hsl(16 17 20 / 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/30;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Safe area for mobile */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-area-pt {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px hsl(var(--brand-primary) / 0.5); }
+    50% { box-shadow: 0 0 20px hsl(var(--brand-primary) / 0.8); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, 
+      hsl(var(--muted)) 25%, 
+      hsl(var(--muted-foreground) / 0.1) 50%, 
+      hsl(var(--muted)) 75%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-brand {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  /* Custom shadows */
+  .shadow-brand {
+    box-shadow: var(--shadow-brand);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-floating {
+    box-shadow: var(--shadow-floating);
+  }
+
+  /* Button variants */
+  .btn-hero {
+    @apply bg-brand-primary hover:bg-brand-primary-hover text-white shadow-brand transition-all duration-300 hover:scale-105;
+  }
+
+  .btn-success {
+    @apply bg-brand-green hover:bg-brand-green/90 text-white shadow-md;
+  }
+
+  /* Status indicators */
+  .status-pending {
+    @apply bg-status-pending text-white;
+  }
+
+  .status-progress {
+    @apply bg-status-progress text-white;
+  }
+
+  .status-resolved {
+    @apply bg-status-resolved text-white;
+  }
+
+  .status-canceled {
+    @apply bg-status-canceled text-white;
+  }
+}
